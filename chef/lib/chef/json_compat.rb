@@ -29,7 +29,7 @@ class Chef
       # to 19, and isn't enough for some (for example, a Node within a Node)
       # structures.
       def opts_add_max_nesting(opts)
-        opts[:create_additions] = true
+        opts[:create_additions] = true unless opts.nil?
         if opts.nil? || !opts.has_key?(:max_nesting)
           opts = opts.nil? ? Hash.new : opts.clone
           opts[:max_nesting] = JSON_MAX_NESTING
